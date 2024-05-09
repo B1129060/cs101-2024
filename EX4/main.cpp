@@ -3,54 +3,54 @@
 using namespace std;
 
 class Fueltank{
-	private:
-		int m_FueltankCapacity;
-		int m_Gas_grade;
-	public:
-		Fueltank(int FueltankCapacity = 3000, int Gas = 98){
-			this->m_FueltankCapacity = FueltankCapacity;
-			this->m_Gas_grade = Gas;
-		}
-		int fuel_up(int v, int gas){
-			if(v > this->m_FueltankCapacity){
-				cout << "Error: FueltankCapacity: " << this->m_FueltankCapacity << " but fuel up: " << v << endl;
-			}
-			if(gas != this->m_Gas_grade){
-				cout << "Error: Gas_grade: " << gas << " Correct Gas_grade: " << this->m_Gas_grade << endl;
-				return 0;
-			}
-			cout << "fuel_up: " << v << " Gas_grade: " << gas << endl;
-			return v;
-		}
-		int set_Gas_grade(int Gas_grade){
-			this->m_Gas_grade = Gas_grade;
-			return this->m_Gas_grade;
-		}		
-		int get_Gas_grade(){ return this-> m_Gas_grade;}
+    private:
+    int m_FueltankCapacity;
+    int m_Gas_grade;
+    public:
+    Fueltank(int FueltankCapacity = 3000, int Gas = 98){
+	this->m_FueltankCapacity = FueltankCapacity;
+	this->m_Gas_grade = Gas;
+    }
+    int fuel_up(int v, int gas){
+	if(v > this->m_FueltankCapacity){
+	    cout << "Error: FueltankCapacity: " << this->m_FueltankCapacity << " but fuel up: " << v << endl;
+	}
+	if(gas != this->m_Gas_grade){
+	    cout << "Error: Gas_grade: " << gas << " Correct Gas_grade: " << this->m_Gas_grade << endl;
+	return 0;
+	}
+	cout << "fuel_up: " << v << " Gas_grade: " << gas << endl;
+	return v;
+    }
+    int set_Gas_grade(int Gas_grade){
+	this->m_Gas_grade = Gas_grade;
+	return this->m_Gas_grade;
+    }		
+    int get_Gas_grade(){ return this-> m_Gas_grade;}
 };
 
 class Engine{
-	private:
-		int m_EngineCapacity;
-		int m_Horsepower;
-		bool m_EngineRunning;
-	public:
-		Engine(int EngineCapacity = 2000, int Horsepower = 200){
-			this->m_EngineCapacity = EngineCapacity;
-			this->m_Horsepower = Horsepower;
-			this->m_EngineRunning = false;
-		}
-		bool EngineStart(){
-			this->m_EngineRunning = true;
-			return true;
-		}
-		bool EngineStop(){
-			this->m_EngineRunning = false;
-			return true;
-		}
-		bool get_EngineStatus(){
-			return this->m_EngineRunning;
-		}
+    private:
+    int m_EngineCapacity;
+    int m_Horsepower;
+    bool m_EngineRunning;
+    public:
+    Engine(int EngineCapacity = 2000, int Horsepower = 200){
+        this->m_EngineCapacity = EngineCapacity;
+	this->m_Horsepower = Horsepower;
+	this->m_EngineRunning = false;
+    }
+    bool EngineStart(){
+	this->m_EngineRunning = true;
+	return true;
+    }
+    bool EngineStop(){
+	this->m_EngineRunning = false;
+	return true;
+    }
+    bool get_EngineStatus(){
+	return this->m_EngineRunning;
+    }
 };
 class Car {
     protected:
@@ -77,7 +77,7 @@ class Car {
         m_UpdatePrice();
         m_DriveMode = "No-wheel";
         m_base = 0;
-	}
+    }
     int get_MaxSeating() { return this->m_MaxSeating;}
     int get_Price() { return this->m_price;}
     void set_base(int n){ this->m_base = n; }
@@ -87,13 +87,13 @@ class Car {
     bool stopEngine(){ return this->m_Engine.EngineStop(); }
     int get_Gas_Grade(){ return this->m_Fueltank.get_Gas_grade(); }
     int set_Gas_grade(int gas){ 
-		cout <<  "Set Gas_grade: " <<  this->m_Fueltank.set_Gas_grade(gas) << endl;
-		return 1;
-	}
-	int fuel_up(int v, int gas){
-		this->m_Fueltank.fuel_up(v, gas);
-		return 1;	
-	}
+	cout <<  "Set Gas_grade: " <<  this->m_Fueltank.set_Gas_grade(gas) << endl;
+	return 1;
+    }
+    int fuel_up(int v, int gas){
+	this->m_Fueltank.fuel_up(v, gas);
+	return 1;	
+    }
     string get_DriveMode() { return this->m_DriveMode;}
 };
 
