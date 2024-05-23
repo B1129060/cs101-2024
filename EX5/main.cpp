@@ -21,7 +21,7 @@ class ReadClass {
 			filename = "main.cpp";
 		}
 		
-		void showClass();{
+		void showClass(){
 			vector<string> name;
 			string s;
 			int num = 0;
